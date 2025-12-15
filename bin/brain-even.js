@@ -1,29 +1,33 @@
-import {question} from 'readline-sync'
-import {play} from 'src/engine'
+#! /usr/bin/env node
 
-export const launch = (username) => {
-    const title = 'Answer "yes" if the number is even, otherwise answer "no".'
-    play(title, prepareData, username)
+import {play} from '../src/engine.js'
+import { getName } from '../src/cli.js'
+import { question } from 'readline-sync'
 
-}
+console.log('Welcome to the Brain Games!')
+const username = getName()
+console.log(`Hello, ${username}`)
 
+const title = 'Answer "yes" if the number is even, otherwise answer "no".'
 const prepareData = () => {
-    return [
-        _makeQuestion(),
-        _getAnswer(question)
-    ]
+    return _getData()
 }
 
 const _makeQuestion = () => {
     return Math.floor(Math.random() * 100)
-    //от 3 до 5 => 
 }
 
-const _getAnswer = (question) => {
+const _getData = () => {
+    const question = _makeQuestion()
     const answer = question % 2 === 0
-    return _getAnswer(answer)
+    return [
+        _getStrAnswer(answer),
+        question
+    ]
 }
 
 const _getStrAnswer = (answer) => {
     return answer ? 'yes' : 'no'
 }
+
+play(title, prepareData, username)
