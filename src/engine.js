@@ -6,7 +6,7 @@ export const play = (title, prepareData, username) => {
         const [answer, question] = prepareData()
         console.log(`Question: ${question}`)
         const userAnswer = rl.question('Your answer:')
-        if (Number(userAnswer) !== answer) {
+        if (userAnswer !== String(answer)) {
             console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${answer}.
             Let's try again, ${username}!`)
             return

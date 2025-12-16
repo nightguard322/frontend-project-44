@@ -8,7 +8,7 @@ console.log('Welcome to the Brain Games!')
 const username = getName()
 console.log(`Hello, ${username}`)
 
-const title = 'Answer "yes" if the number is even, otherwise answer "no".'
+const title = 'What is the result of the expression?'
 const prepareData = () => {
     return _getData()
 }

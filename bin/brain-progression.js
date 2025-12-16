@@ -8,7 +8,7 @@ console.log('Welcome to the Brain Games!')
 const username = getName()
 console.log(`Hello, ${username}`)
 
-const title = 'Find the greatest common divisor of given numbers.'
+const title = 'What number is missing in the progression?'
 const prepareData = () => {
     return _getData()
 }
@@ -35,7 +35,7 @@ const _getData = () => {
         '..',
         ...series.slice(randomKey + 1)
     ].join(' ')
-    return [missingValue,question]
+    return [missingValue, question]
 }
 
 play(title, prepareData, username)
