@@ -14,18 +14,18 @@ const prepareData = () => {
 }
 
 const _getSeries = () => {
+    let diff = Math.floor(Math.random() * 10)
     return Array.from(
         {length: 10},
-        () => Math.floor(Math.random() * 100)
+        (_, i) => i + diff)
     )
 }
 
 const _getData = () => {
-    const [num1, num2] = [_getNumber(), _getNumber()]
-    return [
-        _getStrAnswer(num1, num2),
-        `${num1} ${num2}`
-    ]
+    const interval = _getSeries()
+    const randomKey = Math.floor(Math.random() * interval.length)
+    const missingValue = interval[randomKey]
+
 }
 
 const _getStrAnswer = (num1, num2) => {
