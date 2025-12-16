@@ -13,26 +13,29 @@ const prepareData = () => {
     return _getData()
 }
 
+const _getRandomNumber = () => {
+    return Math.floor(Math.random() * 10)
+}
+
 const _getSeries = () => {
-    let diff = Math.floor(Math.random() * 10)
+    const [start, diff] = Array.from(
+        {length: 2}, _getRandomNumber
+    )
     return Array.from(
         {length: 10},
-        (_, i) => i + diff)
-    )
+        (_, index) => start + (index * diff))
 }
 
 const _getData = () => {
-    const interval = _getSeries()
-    const randomKey = Math.floor(Math.random() * interval.length)
-    const missingValue = interval[randomKey]
-
-}
-
-const _getStrAnswer = (num1, num2) => {
-    while (num2 > 0) {
-        [num1, num2] = [num2, num1 % num2]
-    }
-    return num1
+    const series = _getSeries()
+    const randomKey = Math.floor(Math.random() * series.length)
+    const missingValue = series[randomKey]
+    const question = [
+        ...series.slice(0, randomKey),
+        '..',
+        ...series.slice(randomKey + 1)
+    ].join(' ')
+    return [missingValue,question]
 }
 
 play(title, prepareData, username)
