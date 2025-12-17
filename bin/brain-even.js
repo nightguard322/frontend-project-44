@@ -1,8 +1,7 @@
 #! /usr/bin/env node
 
-import {play} from '../src/engine.js'
+import { play } from '../src/engine.js'
 import { getName } from '../src/cli.js'
-import { question } from 'readline-sync'
 
 console.log('Welcome to the Brain Games!')
 const username = getName()
@@ -10,24 +9,24 @@ console.log(`Hello, ${username}`)
 
 const title = 'Answer "yes" if the number is even, otherwise answer "no".'
 const prepareData = () => {
-    return _getData()
+  return _getData()
 }
 
 const _makeQuestion = () => {
-    return Math.floor(Math.random() * 100)
+  return Math.floor(Math.random() * 100)
 }
 
 const _getData = () => {
-    const question = _makeQuestion()
-    const answer = question % 2 === 0
-    return [
-        _getStrAnswer(answer),
-        question
-    ]
+  const question = _makeQuestion()
+  const answer = question % 2 === 0
+  return [
+    _getStrAnswer(answer),
+    question,
+  ]
 }
 
 const _getStrAnswer = (answer) => {
-    return answer ? 'yes' : 'no'
+  return answer ? 'yes' : 'no'
 }
 
 play(title, prepareData, username)
