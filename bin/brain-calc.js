@@ -22,7 +22,7 @@ const getRandom = (arr) => {
 }
 const _getData = () => {
   const [num1, num2] = [_getNumber(), _getNumber()]
-  const actions = ['+', '-', '*', '/']
+  const actions = ['+', '-', '*']
   const action = getRandom(actions)
   return [
     _getStrAnswer(num1, num2, action),
@@ -38,8 +38,6 @@ const _getStrAnswer = (num1, num2, action) => {
       return num1 - num2
     case '*':
       return num1 * num2
-    case '/':
-      return num1 / num2
     default:
       console.log('Error occured')
       break
