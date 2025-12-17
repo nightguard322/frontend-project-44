@@ -13,5 +13,5 @@ export const play = (title, prepareData, username) => {
     }
     console.log('Correct!')
   }
-  console.log(`Congratulations, ${username}`)
+  console.log(`Congratulations, ${username}!`)
 }
